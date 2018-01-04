@@ -1,44 +1,44 @@
 <html>
 <head>
     <title>ChassiDex</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='chassidex.png') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/chassidex.png" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Noto+Sans:400,400i,700" rel="stylesheet">
+
     <style type="text/css">
-        body{
-            word-wrap: break-word;
-            text-align: center;
-            font-family: main;
-            padding: 0px;
-            margin: 0px;
-            background: url({{url_for('static',filename='bg.png')}});
-        }
-        body{
-            background-attachment: fixed;
-            background-position: center;
-        }
+
+
         #cover{
             padding: 100px;
             color: #ffffff;
             display: inline-block;
-            max-width: 600px;
-            font-family: head;
+            display: grid;
             font-size: 20px;
+            background: rgba(8,12,16,0.8);
+            grid-template-columns: 250px 500px;
+            align-items: center;
+            justify-content: center;
         }
         #cover img{
             width: 100%;
-            max-width: 200px;
+            max-width: 150px;
             height: auto;
-            margin-bottom: 50px;
+        }
+        #cover p{
+            text-align: left;
+            font-size: 20px;
+            padding: 20px;
+        }
+        #cover b{
+            font-size: 30px;
         }
         #list{
             background: #ffffff;
             display: grid;
             padding: 50px;
             grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: repeat({{2 + (data|length - 1)//4}},140px);
         }
         #list h1{
-            font-family: head;
             font-weight: normal;
             margin: 30px;
             grid-column: 1/5;
@@ -47,7 +47,6 @@
             display: inline-block;
             font-size: 20px;
             text-align: left;
-            font-family: head;
             font-style: italic;
             text-decoration: none;
             padding: 20px;
@@ -56,16 +55,20 @@
             margin: 5px;
         }
         #list a span{
-            font-size: 15px;
-            font-family: main;
+            font-size: 20px;
             font-style: normal;
             font-weight: bold;
         }
         @media only screen and (max-width: 800px) {
-            #list{
+
+            #list,#cover{
                 display: block;
                 padding: 0px;
-                padding-top: 30px;
+                padding-top: 70px;
+                text-align: center;
+            }
+            #cover p{
+                text-align: center;
             }
             #list a{
                 display: block;
@@ -73,22 +76,100 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/styles/style.css" >
+    <style>
+        body{
+            word-wrap: break-word;
+            text-align: center;
+            font-family: 'Inconsolata', monospace;
+            padding: 0px;
+            margin: 0px;
+            background: url('/assets/background.png');
+            background-attachment: fixed;
+            background-position: center top;
+        }
+        #header{
+            background: rgba(8,12,16,0.8);
+        }
+    </style>
+    <script>
+        function toggleMenu(){
+            links = header.getElementsByTagName('A')
+            if(links[0].style.display != 'block'){
+                for(i=0;i<links.length;i++)
+                    links[i].style.display = "block"
+            }
+            else{
+                for(i=0;i<links.length;i++)
+                    links[i].style.display = "none"
+            }
+        }
+        function getHostList(){
+            fetch('/hosts/list.csv').then(function(response) {
+                if(response.ok) {
+                    return response.text()
+                }
+                throw new Error('Network response was not ok.')
+            }).then(function(text) {
+                entries = parseCSVTable(text)
+                setHTML(entries)
+            }).catch(function(error) {
+                console.log('There has been a problem with your fetch operation: ', error.message)
+            });
+        }
+        function parseCSVTable(table){
+            delimiter = ','
+            table = table.split('\n')
+            attributes = table[0].split(delimiter)
+            entries = []
+            for(i=1;i<table.length-1;i++){
+                row = table[i].split(delimiter)
+                entry = {}
+                for(j=0;j<attributes.length;j++)
+                    entry[attributes[j]] = row[j]
+                entries.push(entry)
+            }
+            return entries
+        }
+        function htmlForEntry(entry){
+            s = "<a href='/hosts/?n=" + entry.index + "' style='background: hsl(" + entry.color*45 + ",80%,20%);'>"
+            s += "<span style='color: hsl(" + entry.color*45 + ",80%,50%);'>" + entry.index + "</span><br>"
+            s += entry.name + "</a>"
+            return s
+        }
+        function setHTML(entries){
+            html_list = ''
+            for(i=0;i<entries.length;i++){
+                html_list += htmlForEntry(entries[i])
+            }
+            list.innerHTML = "<h1>Index</h1>" + html_list
+            n = 1 + Math.floor(entries.length/4)
+            list.style.gridTemplateRows = "80px repeat(" + n + ",140px)"
+
+        }
+    </script>
 </head>
-<body>
+<body onload="getHostList()">
+    <div id="header">
+        <button onclick="toggleMenu()"> MENU</button>
+        <a href="/"><img src="/assets/chassidex.png"> Home</a>
+        <a href="/about.html">About</a>
+        <a href="/manual.html">Manual</a>
+        <a href="https://github.com/ChassiDex/chassidex-project">GitHub</a>
+    </div>
     <div id="cover">
-        <img src="{{url_for('static',filename='chassidex.png')}}">
-        <br>
-        ChassiDex is a database of host organisms containing all the information you need to engineer them.
+        <img src="/assets/chassidex.png">
+        <p>
+            <b>Welcome to ChassiDex!</b>
+            <br><br>
+            ChassiDex is your one-stop guide to engineering your chosen host organism.
+            <br><br>
+            Scroll below to access our database of host organisms.
+
+        </p>
     </div>
     <div id="list">
         <h1>Index</h1>
-        {% for i in data %}
-            <a href="/index/{{ i['index'] }}" style="background: hsl({{ i['hue'] }},80%,20%);">
-                <span style=" color: hsl({{ i['hue'] }},80%,50%)">{{ i['index'] }}</span>
-                <br>
-                {{ i['name'] }}
-            </a>
-        {% endfor %}
     </div>
 </body>
 </html>

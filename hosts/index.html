@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>ChassiDex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/chassidex.png" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Noto+Sans:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css" >
+    <link rel="stylesheet/less" href="/styles/display.less" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+    <script>
+        index = '';
+        function toggleMenu(){
+            links = header.getElementsByTagName('A')
+            if(links[0].style.display != 'block'){
+                for(i=0;i<links.length;i++)
+                    links[i].style.display = "block"
+            }
+            else{
+                for(i=0;i<links.length;i++)
+                    links[i].style.display = "none"
+            }
+        }
+        function setup(){
+            url = new URL(window.location.href)
+            index = url.searchParams.get('n')
+            getHostData()
+        }
+        function renderMarkdown(index){
+            fetch('/hosts/'+index+"/description.md").then(function(response) {
+                if(response.ok) {
+                    return response.text()
+                }
+                throw new Error('Network response was not ok.')
+            }).then(function(text) {
+                md = new Remarkable('full')
+                content.innerHTML = md.render(text)
+                headings = document.getElementsByTagName('h1')
+                side_links = ''
+                for(i=0;i<headings.length;i++){
+                    side_links += "<a onclick='movetosection(" + i.toString() + ")'>" + headings[i].innerHTML +  "</a>"
+                }
+                document.getElementById('sidebar').innerHTML = side_links
+            }).catch(function(error) {
+                console.log('There has been a problem with your fetch operation: ', error.message)
+            });
+        }
+        function getHostData(){
+            fetch('/hosts/list.csv').then(function(response) {
+                if(response.ok) {
+                    return response.text()
+                }
+                throw new Error('Network response was not ok.')
+            }).then(function(text) {
+                entries = parseCSVTable(text)
+                hostname.innerHTML = entries[index-1].name
+                bsl.innerHTML = entries[index-1].bsl
+                less.modifyVars({'hue':entries[index-1].color*45})
+                renderMarkdown(index)
+            }).catch(function(error) {
+                console.log('There has been a problem with your fetch operation: ', error.message)
+            });
+        }
+        function parseCSVTable(table){
+            delimiter = ','
+            table = table.split('\n')
+            attributes = table[0].split(delimiter)
+            entries = []
+            for(i=1;i<table.length-1;i++){
+                row = table[i].split(delimiter)
+                entry = {}
+                for(j=0;j<attributes.length;j++)
+                    entry[attributes[j]] = row[j]
+                entries.push(entry)
+            }
+            return entries
+        }
+        function movetosection(i){
+           headings = document.getElementsByTagName('h1')
+           headings[i].scrollIntoView({block:'center',behavior:'smooth'})
+        }
+    </script>
+</head>
+<body onload="setup()">
+    <div id="header">
+        <button onclick="toggleMenu()"> MENU</button>
+        <a href="/"><img src="/assets/chassidex.png"> Home</a>
+        <a href="/about.html">About</a>
+        <a href="/manual.html">Manual</a>
+        <a href="https://github.com/ChassiDex/chassidex-project">GitHub</a>
+    </div>
+    <div id="sidebar"></div>
+    <div id="main">
+       <div id="top">
+           <h1 id="hostname">Host name</h1>
+           <p>Safety Level: <br><b id="bsl">0</b></p>
+       </div>
+       <br>
+       <div id="content">
+       </div>
+   </div>
+</body>
+</html>

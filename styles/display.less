@@ -1,0 +1,184 @@
+@hue : 135;
+
+#header{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 3;
+    background: hsl(@hue,80%,2%);
+}
+#sidebar{
+    position: fixed;
+    left: 0%;
+    width: 400px;
+    height: 100%;
+    background: hsl(@hue,80%,3%);
+    overflow-y: scroll;
+    color: #ffffff;
+    padding: 0px;
+    padding-top: 80px;
+    z-index: 2;
+}
+#sidebar a{
+    display: block;
+    padding: 10px 20px;
+    border-bottom: 1px solid hsl(@hue,80%,3%);
+    font-size: 20px;
+    font-family: 'Inconsolata',monospace;
+    color: #ffffff;
+    text-decoration: none;
+}
+#sidebar a:first-child{
+    font-size: 30px;
+    color: hsl(@hue,80%,50%);
+    padding-top: 15px;
+    border-bottom: 1px solid hsl(@hue,80%,50%);
+    font-style: italic;
+}
+#main{
+    position: fixed;
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+    padding-left: 400px;
+    z-index: 1;
+    background: hsl(@hue,80%,95%);
+    overflow-y: scroll;
+}
+#top h1{
+   font-weight: normal;
+   font-style: italic;
+   background: hsl(@hue,80%,40%);
+   color: #ffffff;
+   margin: 0px;
+   padding: 30px;
+   display: none;
+}
+#top p{
+    display: inline-block;
+    padding: 10px;
+    margin: 30px;
+    font-family: 'Noto Sans',sans-serif;
+    font-size: 20px;
+    max-width: 200px;
+    background: hsl(@hue,80%,20%);
+    color: #ffffff;
+    text-align: left;
+}
+#top p b{
+    font-size: 40px;
+}
+#content{
+    padding: 30px;
+}
+#content h1{
+     background: none;
+     color: hsl(@hue,80%,20%);
+     text-align: left;
+     padding-top: 50px;
+     font-weight: 200;
+     font-family: 'Inconsolata',monospace;
+     font-size: 30px;
+     border-bottom: 1px solid hsl(@hue,80%,20%);
+ }
+ #content h2,#content h3,#content h4,#content h5,#content h6, #content p{
+     padding: 20px 0mm;
+     margin: 5px 0mm;
+     text-align: justify;
+     font-family: 'Noto Sans',sans-serif;
+     font-weight: 200;
+     font-size: 20px;
+     color: hsl(@hue,80%,3%);
+ }
+ #content mark{
+     color: hsl(@hue,80%,40%);
+     background: none;
+ }
+ #content a{
+     color: hsl(@hue,80%,40%);
+ }
+ #content strong{
+     font-weight: bold;
+ }
+ #content ol,#content ul{
+     padding: 0px;
+     margin: 5px 0px;
+     list-style-type: none;
+ }
+ #content ol li {
+     counter-increment: step-counter;
+     margin-bottom: 5px;
+     font-size: 20px;
+     font-family: 'Noto Sans',sans-serif;
+     font-weight: 400;
+ }
+ #content ol li:before {
+     content: counter(step-counter);
+     display: inline-block;
+     min-width: 35px;
+     font-weight: 400;
+     color: hsl(@hue,80%,20%);
+ }
+ #content ul li{
+     margin-bottom: 5px;
+     font-size: 20px;
+     font-family: 'Noto Sans',sans-serif;
+     font-weight: 400;
+ }
+ #content ul li:before{
+     content: "O";
+     display: inline-block;
+     min-width: 35px;
+     font-weight: 400;
+     color: hsl(@hue,80%,20%);
+ }
+ #content sup a{
+     text-decoration: none;
+     color: hsl(@hue,80%,40%);
+     font-weight: bold;
+     font-size: 12px;
+ }
+ #content hr{
+     border: 1px dashed hsl(@hue,80%,40%);;
+     opacity: 0.5;
+ }
+ #content hr.footnotes-sep{
+     display: none;
+ }
+ #content .footnotes-list li{
+     margin-top: 15px;
+ }
+
+ #content .footnotes-list p{
+     display: inline;
+ }
+ #content .footnotes-list .footnote-backref{
+     display: none;
+}
+@media only screen and (max-width: 800px) {
+     #sidebar{
+         display: none;
+     }
+     #main{
+         padding-left: 0px;
+         padding-top: 40px;
+     }
+     #top h1{
+         display: block;
+         font-size: 25px;
+     }
+     #top p{
+         font-size: 15px;
+     }
+     #top p b{
+         font-size: 25px;
+     }
+     #content h1{
+         font-size: 25px;
+         margin-top: 25px;
+     }
+     #content h2,#content h3,#content h4,#content h5,#content h6, #content p, #content ol li, #content ul li{
+         font-size: 15px;
+         margin: 2px 0px;
+     }
+}
