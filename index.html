@@ -1,7 +1,94 @@
 <html>
 <head>
     <title>ChassiDex</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='chassidex.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
+    <style type="text/css">
+        body{
+            word-wrap: break-word;
+            text-align: center;
+            font-family: main;
+            padding: 0px;
+            margin: 0px;
+            background: url({{url_for('static',filename='bg.png')}});
+        }
+        body{
+            background-attachment: fixed;
+            background-position: center;
+        }
+        #cover{
+            padding: 100px;
+            color: #ffffff;
+            display: inline-block;
+            max-width: 600px;
+            font-family: head;
+            font-size: 20px;
+        }
+        #cover img{
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 50px;
+        }
+        #list{
+            background: #ffffff;
+            display: grid;
+            padding: 50px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: repeat({{2 + (data|length - 1)//4}},140px);
+        }
+        #list h1{
+            font-family: head;
+            font-weight: normal;
+            margin: 30px;
+            grid-column: 1/5;
+        }
+        #list a{
+            display: inline-block;
+            font-size: 20px;
+            text-align: left;
+            font-family: head;
+            font-style: italic;
+            text-decoration: none;
+            padding: 20px;
+            color: #ffffff;
+            vertical-align: top;
+            margin: 5px;
+        }
+        #list a span{
+            font-size: 15px;
+            font-family: main;
+            font-style: normal;
+            font-weight: bold;
+        }
+        @media only screen and (max-width: 800px) {
+            #list{
+                display: block;
+                padding: 0px;
+                padding-top: 30px;
+            }
+            #list a{
+                display: block;
+                margin: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    Hello
+    <div id="cover">
+        <img src="{{url_for('static',filename='chassidex.png')}}">
+        <br>
+        ChassiDex is a database of host organisms containing all the information you need to engineer them.
+    </div>
+    <div id="list">
+        <h1>Index</h1>
+        {% for i in data %}
+            <a href="/index/{{ i['index'] }}" style="background: hsl({{ i['hue'] }},80%,20%);">
+                <span style=" color: hsl({{ i['hue'] }},80%,50%)">{{ i['index'] }}</span>
+                <br>
+                {{ i['name'] }}
+            </a>
+        {% endfor %}
+    </div>
 </body>
+</html>
