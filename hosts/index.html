@@ -34,7 +34,7 @@
                 throw new Error('Network response was not ok.')
             }).then(function(text) {
                 md = new Remarkable('full')
-                content.innerHTML = md.render(text)
+                document.getElementById('content').innerHTML = md.render(text)
                 headings = document.getElementsByTagName('h1')
                 side_links = ''
                 for(i=0;i<headings.length;i++){
