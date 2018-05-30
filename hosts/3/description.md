@@ -1,48 +1,11 @@
-The description starts here. The whole thing is written in Markdown. It's really simple. A heading starts with a '#' followed by a space as you can see below. References are simple. [^somename]. By the way, *some random* latin name can be written in italics *like this*.
+# About
 
-# Strains
-This section lists common strains of the species and their specific uses. Lists are simple:
-1. Strain 1[^strainref1]
-2. Strain 2[^strainref2]
-3. Each strain can have a description too
+Pseudomonas putida is a rod-shaped, flagellated, gram-negative bacterium that is found in most soil and water habitats where there is oxygen. It grows optimally at 25-30 C and can be easily isolated. Due to the bacteria’s strong appetite for organic pollutants, researchers are attracted to using Pseudomonas putida as the “laboratory ‘workhorse’ for research on bacteria-remediated soil processes.This bacteria is unique because it has the most genes involved in breaking down aromatic or aliphatic hydrocarbons which are hazardous chemicals caused by burning fuel, coal, tobacco, and other organic matter.
 
 # Growth Characteristics
-In this section, provide information about the optimal conditions and nutritional requirements for growth and reproduction of the host. Include data such as optimal temperature, pH and doubling time. Please provide your references.
 
-# Culture Suppliers
-In this section please provide links to culture sources from which one may obtain a culture of the organism. This may include culture collections such as ATCC, or research labs that are willing to share the organism.
-
-1. ATCC: [https://www.atcc.org/](https://www.atcc.org/)
-2. MTCC: [https://www.mtccindia.res.in/](https://www.mtccindia.res.in/)
-
-That's how you put links.
-
-# Maintenance Protocols
-In this section, mention the storage conditions and growth mediums for maintenance of the organism. Provide links to webpages or research papers describing the full protocol. If your lab uses a customized protocol and you are willing to contribute that, please enter the information at [protocat.org](http://protocat.org), and paste the link here.
-
-# Transformation Protocols
-In this section, mention the protocols used for transformation of organism. Provide links to webpages or research papers describing the full protocol. If your lab uses a customized protocol and you are willing to contribute that, please enter the information at [protocat.org](http://protocat.org), and paste the link here.
-
-# Other Protocols
-In this section, mention any other relevant protocols. Provide links to webpages or research papers describing the full protocol. If your lab uses a customized protocol and you are willing to contribute that, please enter the information at [protocat.org](http://protocat.org), and paste the link here.
-
-# Vectors
-Please mention and provide links to cloning vectors, expression vectors, shuttle vectors, etc. that can be used with this organism.
-
-# Parts
-Please provide links to parts such as promoters, reporters, replication origin, resistance markers, etc. that can be used with this organism
-
-# Metabolic Models
-Please mention and provide links to metabolic models of this organism.
-
-# Genome Sequence
-The genome sequence can be usually found in the NCBI database Please provide the link to the page which contains the genome sequence, from NCBI or any other database.
-
-# Contributors
-Acknowledge contributors here and mention their contact details to be used by those who might need more help
-
-
-# References
-[^somename]: Referenced here
-[^strainref1]: Strain reference 1
-[^strainref2]: Strain reference 1
+* Optimal Temperature: 30 degrees Celsius
+* Atmosphere: Aerobic
+* Doubling time: Apprx. 41 minutes when grown in a rotary shaker at 150 rpm,
+* Shaking at lower rpms (50) produces filaments
+* Can be grown on M9 minimal medium, ATCC medium 1065, and LB agar.

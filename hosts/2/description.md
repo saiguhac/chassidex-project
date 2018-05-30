@@ -1,48 +1,75 @@
-The description starts here. The whole thing is written in Markdown. It's really simple. A heading starts with a '#' followed by a space as you can see below. References are simple. [^somename]. By the way, *some random* latin name can be written in italics *like this*.
-
-# Strains
-This section lists common strains of the species and their specific uses. Lists are simple:
-1. Strain 1[^strainref1]
-2. Strain 2[^strainref2]
-3. Each strain can have a description too
+# About
+Bacillus subtilis is a Gram-positive bacterium. It is a facultative anaerobe. It is capable of growing in diverse, tough environments by forming a tough, protective endospore. It is a model organism for the study of cell differentiation in bacteria. B.subtilis' genome is easy to be engineered and it survives under tough conditions.
 
 # Growth Characteristics
-In this section, provide information about the optimal conditions and nutritional requirements for growth and reproduction of the host. Include data such as optimal temperature, pH and doubling time. Please provide your references.
+Optimal temperature is 37-degree celsius. The doubling time is 30 min[^gc1]. The optimum pH is 7[^gc2]. It can divide asymmetrically to form an endospore. This sporulation occurs under stressful, nutrient-starved conditions. The endospore is resistant to unfavorable environmental conditions like extreme pH, heat, radiation, etc[^gc3]. B. subtilis grows in certain glucose and nitrogen sources. Some of the growth mediums are: C-minimal medium[^gc4] M9 minimal medium [^gc5] Spizizen minimal medium[^gc6] Long Version Nutrient Agar[^gc7] 2X SG Media[^gc8]
 
-# Culture Suppliers
-In this section please provide links to culture sources from which one may obtain a culture of the organism. This may include culture collections such as ATCC, or research labs that are willing to share the organism.
 
-1. ATCC: [https://www.atcc.org/](https://www.atcc.org/)
-2. MTCC: [https://www.mtccindia.res.in/](https://www.mtccindia.res.in/)
+# Culture sources
 
-That's how you put links.
+1. ATCC: https://www.atcc.org/en/Products/Collections/Preceptrol_Cultures/23857.aspx#generalinformation
+2. Bacillus Genetic Stock Centre: http://www.bgsc.org/
 
-# Maintenance Protocols
-In this section, mention the storage conditions and growth mediums for maintenance of the organism. Provide links to webpages or research papers describing the full protocol. If your lab uses a customized protocol and you are willing to contribute that, please enter the information at [protocat.org](http://protocat.org), and paste the link here.
+# Growth Media
+
+1. LB broth: http://2014.igem.org/wiki/images/5/59/LMU_Munich14_Media.pdf
+2. Difco Sporulation medium: http://2014.igem.org/wiki/images/5/59/LMU_Munich14_Media.pdf
+3. Chemically defined medium: https://file.scirp.org/pdf/AiM_2014061709514537.pdf
+4. Modified Chemically Defined Media: http://2014.igem.org/wiki/images/5/59/LMU_Munich14_Media.pdf
 
 # Transformation Protocols
-In this section, mention the protocols used for transformation of organism. Provide links to webpages or research papers describing the full protocol. If your lab uses a customized protocol and you are willing to contribute that, please enter the information at [protocat.org](http://protocat.org), and paste the link here.
+
+1. Efficient Transformation: https://link.springer.com/article/10.1007%2Fs00253-012-3987-2
+2. Requirements for transformation: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC279084/pdf/jbacter00480-0093.pdf
+3. How To Bacillus subtilis: http://2016.igem.org/wiki/images/7/74/T--UBonn_HBRS--How-To-Bacillus-Subtilis.pdf
 
 # Other Protocols
-In this section, mention any other relevant protocols. Provide links to webpages or research papers describing the full protocol. If your lab uses a customized protocol and you are willing to contribute that, please enter the information at [protocat.org](http://protocat.org), and paste the link here.
+[1] Cell disruption and extraction of RNA: http://subtiwiki.uni-goettingen.de/wiki/images/8/82/SOP-RNA.pdf
+[2] Transpoon mutagenesis: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3264109/
+
+# Biobrick Parts
+1. BBa_I742123: http://parts.igem.org/Part:BBa_I742123
+2. pBS1C: http://parts.igem.org/wiki/index.php?title=Part:BBa_J179000
+3. pBS2E: http://parts.igem.org/Part:BBa_J179001
+4. pBs4S: http://parts.igem.org/wiki/index.php?title=Part:BBa_J179002
+5. Episomal Vector with Constitutive GFP: http://parts.igem.org/wiki/index.php?title=Part:BBa_K090402
+6. Shuttle Vector for Chromosomal Integration: http://parts.igem.org/wiki/index.php?title=Part:BBa_K090403
+7. BBa_K1065204: http://parts.igem.org/wiki/index.php?title=Part:BBa_K1065204
+8. Integration vector for Bacillus subtilis derived from pSac-Cm: http://parts.igem.org/wiki/index.php?title=Part:BBa_K1185004
+9. pSBbs4E: http://parts.igem.org/wiki/index.php?title=Part:BBa_K1364021
+10. pSBBs1C-lacZ: http://parts.igem.org/wiki/index.php?title=Part:BBa_K823021
+11. pSBBs4S: http://parts.igem.org/wiki/index.php?title=Part:BBa_K823022
+12. pSBBs1C: http://parts.igem.org/wiki/index.php?title=Part:BBa_K823023
+13. pSBBs4S-P: http://parts.igem.org/wiki/index.php?title=Part:BBa_K823024
+14. pSBBs3C-luxABCDE: http://parts.igem.org/wiki/index.php?title=Part:BBa_K823025
+15. pSBBs2E: http://parts.igem.org/wiki/index.php?title=Part:BBa_K823027
 
 # Vectors
-Please mention and provide links to cloning vectors, expression vectors, shuttle vectors, etc. that can be used with this organism.
-
-# Parts
-Please provide links to parts such as promoters, reporters, replication origin, resistance markers, etc. that can be used with this organism
+1. PAC5: https://www.ncbi.nlm.nih.gov/pubmed/1619665
+2. PAC6: http://subtiwiki.uni-goettingen.de/wiki/index.php/PAC6
+3. PAC7: http://subtiwiki.uni-goettingen.de/wiki/index.php/PAC7
+4. pBaSysBioII: https://www.ncbi.nlm.nih.gov/pubmed/20150235
 
 # Metabolic Models
-Please mention and provide links to metabolic models of this organism.
+1. iYO844: http://bigg.ucsd.edu/models/iYO844
 
-# Genome Sequence
-The genome sequence can be usually found in the NCBI database Please provide the link to the page which contains the genome sequence, from NCBI or any other database.
-
-# Contributors
-Acknowledge contributors here and mention their contact details to be used by those who might need more help
-
+# Other online resources
+1. SubtiWiki: http://subtiwiki.uni-goettingen.de/
 
 # References
-[^somename]: Referenced here
-[^strainref1]: Strain reference 1
-[^strainref2]: Strain reference 1
+
+[^gc1]: http://2014.igem.org/wiki/images/5/59/LMU_Munich14_Media.pdf
+
+[^gc2]: https://www.ncbi.nlm.nih.gov/pubmed/9147720
+
+[^gc3]: http://www.nature.com/nrmicro/journal/v11/n1/full/nrmicro2921.html?foxtrotcallback=true
+
+[^gc4]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2395005/
+
+[^gc5]: http://subtiwiki.uni-goettingen.de/wiki/index.php/M9_minimal_medium
+
+[^gc6]: http://subtiwiki.uni-goettingen.de/wiki/index.php/Spizizen_minimal_medium
+
+[^gc7]: http://www.dtic.mil/dtic/tr/fulltext/u2/a553789.pdf
+
+[^gc8]: http://www.dtic.mil/dtic/tr/fulltext/u2/a553789.pdf

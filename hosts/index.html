@@ -33,7 +33,7 @@
                 }
                 throw new Error('Network response was not ok.')
             }).then(function(text) {
-                md = new Remarkable('full')
+                md = new Remarkable('full',{linkify: true})
                 document.getElementById('content').innerHTML = md.render(text)
                 headings = document.getElementsByTagName('h1')
                 side_links = ''
